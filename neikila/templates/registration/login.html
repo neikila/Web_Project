@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% endblock %}
+
+{% block content %}
+
+
+<h2>Log In</h2>
+
+{% if form.errors %}
+
+<div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Warning!</strong> Your username and password didn't match. Please try again.
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}" class="form-horizontal">
+{% csrf_token %}
+	<div class="control-group">
+		<label class="control-label height-30" for="login">{{ form.username.label_tag }}</label>
+		<div class="controls padding-5 margin-top-5">
+			{{ form.username }}
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="password">{{ form.password.label_tag }}</label>
+		<div class="controls padding-5 margin-top-5">
+			{{ form.password }}
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls margin-top-20">
+			<button type="submit" class="btn" name="login">Log In</button>
+			<input type="hidden" name="next" value="{{ next }}" />
+		</div>
+	</div>
+</form>
+
+
+{% endblock %}
+

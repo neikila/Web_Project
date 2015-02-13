@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block user-info %}
+
+{% endblock %}
+{% block main %}
+	<h2>Best Questions</h2>
+	{% for i in "12345" %}
+		{% include "incl/question.html" %}
+	{% endfor %}
+	{% include "incl/pagination.html" %}
+{% endblock %}
+

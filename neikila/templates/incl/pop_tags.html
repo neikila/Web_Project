@@ -1,0 +1,6 @@
+<div>
+	<a href="#"><h3>Popular Tags</h3></a>
+	{% for pop_tag in popular_tags %}
+	<a href="#">{{ pop_tag.tag_text }}</a>{% if not forloop.last %},{%endif %}
+	{% endfor %}
+</div>

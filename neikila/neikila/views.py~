@@ -1,0 +1,50 @@
+from django.http import HttpResponse
+#from django.http import QueryDict
+from django.shortcuts import render
+
+def index(req):
+	return render(req, 'index.html')
+
+def login(req):
+	return render(req, 'login.html')
+
+def settings(req):
+	return render(req, 'settings.html')
+
+def signin(req):
+	return render(req, 'signin.html')
+
+def hello(request):
+
+    Hello = "Hello\n"
+    if request.method=='GET':
+        param = dict(request.GET)
+    if request.method=='POST':
+        param = dict(request.POST)
+
+    for k in param:
+        line = '%s: %s<br>\n' % (k, " ".join(param[k]))
+	Hello = Hello + line
+    return HttpResponse(Hello)
+
+def test2(request):
+	output = "<html> "
+	output = output + "<head> "
+	output = output + "<title>Title List Apach </title> "
+	output = output + "</head> "
+	output = output + "<body bgcolor=silver teext=black> "
+	output = output + "<h2>MHTC Bauman</h2><br> "
+	output = output + "<h3>Faculty SAPR</h3><br><br><br> "
+	output = output + "<div align=center> "
+	output = output + "Examination work<br> "
+	output = output + 'disciple "Developing OS"<br><br> '
+	output = output + 'Theme "Market" '
+	output = output + "</div> "
+	output = output + "<div align=left> "
+	output = output + "Student Ivanov<br> "
+	output = output + "Group Rk6-52 "
+	output = output + "</div> "
+	output = output + "</body> "
+	output = output + "</html> "
+	return HttpResponse(output)
+   

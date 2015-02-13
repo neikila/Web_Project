@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block user-info %}
+		{% include "incl/header-user-info.html" %}
+{% endblock %}
+
+{% block content%}
+		{{ user.profile.avatar }}
+		{{ user }}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+Регистрация пользователя
+
+{% block content %}
+  <h1>Регистрация пользователя</h1>
+  <form action="/settings" method="post">
+
+		{% csrf_token %}
+
+    <label for="id_username">Логин:</label> {{ form.username }}
+
+    <label for="id_password1">Пароль:</label> {{ form.password1 }}
+
+    <label for="id_password2">Пароль (снова):</label> {{ form.password2 }}
+		
+		<br>
+    
+		<input type="submit" value="Зарегистрировать" />
+  </form>
+{% endblock %}

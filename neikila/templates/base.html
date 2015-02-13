@@ -1,0 +1,75 @@
+{% load inclusion %}
+{% load cache %}
+<html lang="en">
+	<title>
+		Web Project
+	</title>
+	<head>
+		<link rel="stylesheet" href=/bootstrap/css/bootstrap.css>
+		<link rel="stylesheet" href=/style.css>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fav and touch icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="http://getbootstrap.com/2.3.2/assets/ico/favicon.png">
+	</head>
+	<body>
+			<div class="navbar navbar-static-top">
+				<div class="navbar-inner width-100 min-width">
+					<div class="span9 width-3-4">
+						<a class="brand margin-top-10" href="/">Web Project</a>
+						<form action="/search" method="get" class="navbar-form pull-left margin-top-10">
+							<input type="text" class="span2" name="query">
+							<button type="submit" class="btn">Search</button>
+						</form>
+						<a href="/ask" class="btn my-btn">ASK!</a>
+					</div>
+					<div class="span3 width-1-4 row">
+					{% block user-info %}
+					{% endblock %}
+					</div>
+				</div>
+			</div>	
+		<div class="container width-cont">
+			<div class="row width-100 margin-0">
+				<div class="span9 width-3-4 margin-top-20">
+					{% block main %}
+					{% endblock %}
+					{% block content %}
+					{% endblock %}
+				</div>
+				<div class="span3 width-1-4">
+					{% best_tags %}
+					{% best_users %}
+
+				</div>
+			</div>
+		</div>
+		<div>
+		{% cache 50000 java-key%}
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://getbootstrap.com/2.3.2/assets/js/jquery.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-modal.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-popover.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-button.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-typeahead.js"></script>
+		{% endcache %}
+		{% block foot %}
+		{% endblock %}
+	</body>
+	</div>
+</html>

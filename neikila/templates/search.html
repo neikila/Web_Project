@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block user-info %}
+	{% if user.is_authenticated %}
+		{% include "incl/header-user-info.html" %}
+	{% else %}
+		{% include "incl/header-log-in.html" %}
+	{% endif %}
+{% endblock %}
+{% block content %}
+	<h2>Result</h2>
+	{% for q in question %}
+		{% include "incl/question_for_search.html" %}
+	{% endfor %}
+	{% include "incl/pagination.html" %}
+{% endblock %}
+
+{% block foot %}
+	{% include "incl/js-like.html" %}
+{% endblock %}
+

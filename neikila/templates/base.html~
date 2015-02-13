@@ -1,0 +1,55 @@
+<html lang="en">
+	<title>
+		Main Page
+	</title>
+	<head>
+		<link rel="stylesheet" href=bootstrap/css/bootstrap.css>
+		<link rel="stylesheet" href=style.css>
+	</head>
+	<body>
+			<div class="navbar navbar-static-top">
+				<div class="navbar-inner width-1200">
+					<div class="span9 width-3-4">
+						<a class="brand margin-top-10" href="/">Neikila</a>
+						<form class="navbar-form pull-left margin-top-10">
+							<input type="text" class="span2">
+							<button type="submit" class="btn">Search</button>
+						</form>
+						<a href="/ask/" class="btn my-btn">ASK!</a>
+					</div>
+					<div class="span3 width-1-4 row">
+					{% block user-info %}
+					{% endblock %}
+					</div>
+				</div>
+			</div>	
+		<div class="container width-cont">
+			<div class="row width-100 margin-0">
+				<div class="span9 width-3-4">
+					{% block main %}
+					{% endblock %}
+				</div>
+				<div class="span3 width-1-4">
+					<div>
+						<a href="#"><h3>Popular Tags</h3></a>
+						<a href="#">Hello</a>, 
+						<a href="#">world</a>, 
+						<a href="#">And</a>, 
+						<a href="#">So</a>, 
+						<a href="#">On</a>
+					</div>
+					<div>
+						<h3>Cool Users</h3>
+						<ul>
+							<li><a href="#">Me</a></li>
+							<li><a href="#">You</a></li>
+							<li><a href="#">We</a></li>
+							<li><a href="#">She</a></li>
+							<li><a href="#">He</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

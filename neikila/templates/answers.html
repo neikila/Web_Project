@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block user-info %}
+	{% if user.is_authenticated %}
+		{% include "incl/header-user-info.html" %}
+	{% else %}
+		{% include "incl/header-log-in.html" %}
+	{% endif %}
+{% endblock %}
+
+{% block main %}
+	{% for q in question %}
+		{% include "incl/QuestionForAnswerForm.html"%}
+	{% endfor %}
+	<hr size="3" width="120%" color="black" class="margin-left--70">
+	{% for a in answers %}
+		{% include "incl/answer.html" %}
+	{% endfor %}
+	{% include "incl/pagination_for_answers.html" %}
+{% endblock %}
+{% block content %}
+<form method = "POST" action="">
+	<h2>Answer Question</h2>
+	{% csrf_token %}
+	{{ form }}
+	<br>
+	<input type = "submit">
+</form>
+
+{% endblock %}
+
+{% block foot %}
+	{% include "incl/js-like.html" %}
+{% endblock %}

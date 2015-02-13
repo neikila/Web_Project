@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main %}
+<h2>Best Questions</h2>
+{% for i in "12345" %}
+{% include "incl/question.html" %}
+{% endfor %}
+{% include "incl/pagination.html" %}
+<div class="pagination pagination-centered">
+	<ul>
+		<li><a href="#">Prev</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#">Next</a></li>
+	</ul>
+</div>
+{% endblock %}
+

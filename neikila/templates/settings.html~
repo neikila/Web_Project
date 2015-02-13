@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block user-info %}
+{% include "incl/header-user-info.html" %}
+{% endblock %}
+
+{% block main %}
+<p><h2>Settings: MyName</h2></p>
+<form class="form-horizontal">
+	<div class="control-group">
+		<label class="control-label height-30" for="login">Login</label>
+		<div class="controls padding-5">
+			<input type="text height-30" id="login" placeholder="Login">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="email">Email</label>
+		<div class="controls padding-5">
+			<input type="password height-30" id="email" placeholder="Email">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="nickname">Nickname</label>
+		<div class="controls padding-5">
+			<input type="password height-30" id="nickname" placeholder="Nickname">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="avatar">Upload Avatar</label>
+		<div class="controls padding-5">
+	  		<img src="images/figure.jpg" width="100" height="100" class="img-rounded">
+		</div>
+		<div class="controls margin-top-20">
+		    	<input type="text" class="input-medium search-query">
+			<button type="submit" class="btn choose-btn">Choose</button>
+		</div>
+		<div class="controls margin-top-20">
+			<button type="submit" class="btn">Save</button>
+		</div>
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block user-info %}
+	{% if user.is_authenticated %}
+		{% include "incl/header-user-info.html" %}
+	{% else %}
+		{% include "incl/header-log-in.html" %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+<p><h2>Settings: {{ user }} </h2></p>
+<form method="post" action='/settings/save' enctype="multipart/form-data" class="form-horizontal">
+{% csrf_token %}
+
+{% if Error %}
+<div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Warning!</strong>
+	{% if Nickname_is_busy %} This nickname is already taken!
+	{% elif Wrong_len %} Nickname's length should be over 3 and less than 40 symbols! 
+	{% elif Wrong_email %} Wrong email!
+	{% elif Email_is_busy %} This email is already used! {% endif %}
+</div>
+{% endif %}
+
+	<div class="control-group">
+		<label class="control-label height-30" for="nickname">Nickname</label>
+		<div class="controls padding-5">
+			<input type="text height-30" name="nickname" placeholder="{{ user.profile.nickname }}">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="email">Email</label>
+		<div class="controls padding-5">
+			<input type="text height-30" name="email" placeholder="{{ user.email }}">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="avatar">Upload Avatar</label>
+		<div class="controls padding-5">
+	  		<img src="/uploads/avatar{{ user.profile.avatar }}" width="100" height="100" class="img-rounded">
+		</div>
+		<div class="controls margin-top-20">
+		  <input type="file" name="avatar" multiply accept="image/*" class="input-medium search-query">
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls margin-top-20">
+			<button type="submit" class="btn margin-left-14">Save</button>
+		</div>
+	</div>
+</form>
+{{ email }} 
+{% endblock %}

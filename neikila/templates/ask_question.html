@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block user-info %}
+	{% include "incl/header-user-info.html" %}
+{% endblock %}
+{% block content %}
+<form method = "POST" action="">
+	<h2>Ask_Question</h2>
+	{% csrf_token %}
+	{{ form }}
+	<br>
+	<input type = "submit">
+</form>
+{% endblock %}

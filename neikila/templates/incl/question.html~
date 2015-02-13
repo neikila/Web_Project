@@ -1,0 +1,39 @@
+<div class="question row">
+	<div class="span2 width-1-3 margin-0">
+		<div>
+			<img src="http://lorempixel.com/120/120/" class="img-polaroid">
+		</div>
+		<div class="likes">
+			<div class="value pull-left">
+				{{ q.rating }}
+			</div>
+			<div class="plusmines pull-left">
+				<div class="plus">
+					<a class="btn btn-plusminus" href="#"><i class="icon-chevron-up"></i></a>
+				</div>
+				<div class="minus">
+					<a class="btn btn-plusminus" href="#"><i class="icon-chevron-down"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span7 width-2-3 margin-0">
+		<div class="height-150" >
+			<h4><a href='?q_id={{q.id}}'>{{ q.header }}</a></h4>
+			<p>{{ q.question_text }}</p>
+			<div>
+				<a href="#">Answers</a> <span class="badge">{{ q.answers__count }}</span>
+				<a href="#">Tags</a>:
+				{% for t in tags %}
+					{% ifequal q.id t.question_id %}
+						<a href="#">{{ t.tag_id__tag_text}}</a>
+					{% endifequal %}	
+				{% endfor %}
+			</div>
+		</div>
+		<div class="float-right margin-right-20">
+			<p>Asked: <a href='#'>{{ q.author_id__nickname }}</a></p>
+			DateTime: {{ q.pub_date }}
+		</div>
+	</div>
+</div>

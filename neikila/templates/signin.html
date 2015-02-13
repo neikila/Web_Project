@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Registration</h2>
+<div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Error!</strong> Sorry. This login is not free.
+</div>
+<form class="form-horizontal">
+	<div class="control-group">
+		<label class="control-label height-30" for="email">Email</label>
+		<div class="controls padding-5">
+			<input type="password height-30" id="email" placeholder="Email">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="nickname">Nickname</label>
+		<div class="controls padding-5">
+			<input type="text height-30" id="nickname" placeholder="Nickname">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="password">Password</label>
+		<div class="controls padding-5">
+			<input type="password height-30" id="password" placeholder="Password">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label height-30" for="confpassword">Confirm password</label>
+		<div class="controls padding-5">
+			<input type="password height-30" id="confpassword" placeholder="Confirm password">
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls margin-top-20">
+			<label for="acception"><input id="acception" type="checkbox" value="true" name="acception" class="margin-0">  I have read and agree to the privacy policy and terms of service</input></label>
+			<button type="submit" class="btn margin-top-10" name="signin">Sign In</button>
+		</div>
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+<div class="question row">
+	<div class="span2 width-1-3 margin-0">
+		<div>
+			<img src="/uploads/avatar/{{a.author_id__profile__avatar}}" width="120px" height="120px" class="img-polaroid">
+		</div>
+		<div class="likes">
+			<div class="value pull-left" id="a{{a.id}}">
+				{{ a.rating }}
+			</div>
+			<div class="plusmines pull-left">
+				<div class="plus">
+					<a class="btn btn-plusminus js-like" href="like/" data-id="{{ a.id }}" data-url="/like/" data-mark="1" data-ptype="1"><i class="icon-chevron-up"></i></a>
+				</div>
+				<div class="minus">
+					<a class="btn btn-plusminus js-like" href="like/" data-id="{{ a.id }}" data-url="/like/" data-mark="-1" data-ptype="1"><i class="icon-chevron-down"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span7 width-2-3 margin-0">
+		<div class="height-150" >
+			<p>{{ a.answer_text }}</p>
+		</div>
+		<div class="float-right margin-right-20">
+			<p>Asked: <a href='#'>{{ a.author_id__profile__nickname }}</a></p>
+			DateTime: {{ a.pub_date }}
+		</div>
+	</div>
+</div>
+
